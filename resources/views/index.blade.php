@@ -1,0 +1,64 @@
+@extends('layouts.app')
+@section('title', 'MovieTalk')
+@push('styles')
+@endpush
+
+@section('content')
+    <div class="page">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="slider">
+                    <ul class="slides">
+                        <li><a href="#"><img src="{{ asset('_assets/images/dummy/slide-1.jpg') }}"
+                                             alt="Slide 1"></a></li>
+                        <li><a href="#"><img src="{{ asset('_assets/images/dummy/slide-2.jpg') }}"
+                                             alt="Slide 2"></a></li>
+                        <li><a href="#"><img src="{{ asset('_assets/images/dummy/slide-3.jpg') }}"
+                                             alt="Slide 3"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-sm-6 col-md-12">
+                        <div class="latest-movie">
+                            <a href="#"><img src="{{ asset('_assets/images/dummy/thumb-1.jpg') }}"
+                                             alt="Movie 1"></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-12">
+                        <div class="latest-movie">
+                            <a href="#"><img src="{{ asset('_assets/images/dummy/thumb-2.jpg') }}"
+                                             alt="Movie 2"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- .row -->
+        <div class="row">
+            <div class="col-sm-6 col-md-3">
+                <div class="latest-movie">
+                    <a href="#"><img src="{{ asset('_assets/images/dummy/thumb-3.jpg') }}" alt="Movie 3"></a>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="latest-movie">
+                    <a href="#"><img src="{{ asset('_assets/images/dummy/thumb-4.jpg') }}" alt="Movie 4"></a>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="latest-movie">
+                    <a href="#"><img src="{{ asset('_assets/images/dummy/thumb-5.jpg') }}" alt="Movie 5"></a>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="latest-movie">
+                    <a href="#"><img src="{{ asset('_assets/images/dummy/thumb-6.jpg') }}" alt="Movie 6"></a>
+                </div>
+            </div>
+        </div> <!-- .row -->
+    </div>
+@endsection
+
+@push('scripts')
+@endpush
