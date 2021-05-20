@@ -5,9 +5,16 @@
         .slider img {
             max-width: 100%;
             width: 100%;
-            height: 491px;
+            height: 790px;
             display: block;
             object-fit: contain;
+        }
+        .tagline {
+            border-left: 14px solid #ffaa3c;
+            padding: 18px;
+            margin-bottom: 30px;
+            margin-left: 16px;
+            background-color: rgb(255 169 60 / 20%);
         }
     </style>
 @endpush
@@ -18,6 +25,7 @@
             <div class="col-md-9">
                 <div class="slider">
                     <ul class="slides">
+                        <p class="tagline">Top Rated</p>
                         @forelse($topRatedMovies as $topRatedMovie)
                             <li><a href="#"><img class="img-fluid" src="{{ 'https://image.tmdb.org/t/p/w500' . $topRatedMovie['poster_path'] }}" alt="Slide 1"></a></li>
                         @empty
@@ -28,6 +36,7 @@
             </div>
             <div class="col-md-3">
                 <div class="row">
+                    <p class="tagline">Popular</p>
                     @forelse($popularMoviesRight as $popularMovie)
                     <div class="col-sm-6 col-md-12">
                         <div class="latest-movie">
@@ -40,6 +49,7 @@
             </div>
         </div> <!-- .row -->
         <div class="row">
+            <p class="tagline">More Popular</p>
             @forelse($popularMoviesBottom as $popularMovie)
             <div class="col-sm-6 col-md-3">
                 <div class="latest-movie">
