@@ -12,7 +12,10 @@
     <link href="{{ mix('_assets/fonts/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 
     <!-- Loading main css file -->
+    @livewireStyles
     <link rel="stylesheet" href="{{ mix('_assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/plugins/jquery-modal/css/jquery.modal.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/plugins/jquery-modal/css/custom.css') }}">
     @stack('styles')
 </head>
 <body>
@@ -25,8 +28,11 @@
     </main>
     @include('includes.footer')
 </div>
+@livewireScripts
 <!-- Default snippet for navigation -->
 <script src="{{ mix('_assets/js/script.js') }}"></script>
+<script src="{{ asset('vendor/plugins/jquery-modal/js/jquery.modal.js') }}"></script>
+<script src="{{ asset('vendor/plugins/jquery-modal/js/custom.js') }}"></script>
 @stack('scripts')
 </body>
 </html>

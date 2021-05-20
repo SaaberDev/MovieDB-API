@@ -1,0 +1,22 @@
+/*.band {*/
+/*  background-image: linear-gradient(to right, #2a27a8 0%, #8c50bc 50%, #fc6e6c 100%);*/
+/*  height: 10px;*/
+/*  top: 0;*/
+/*  right: 0;*/
+/*  left: 0;*/
+/*  position: fixed;*/
+/*}*/
+
+.wrapper {
+  padding: 2em 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.modalCtm {
+  margin: 1em 0;
+}
+
+.modalCtm a.close-modal {
+  border: none;
+}

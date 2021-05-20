@@ -19,4 +19,6 @@
 
         <div class="mobile-navigation"></div>
     </div>
+
+    @include('includes.modals.movie_detail')
 </header>

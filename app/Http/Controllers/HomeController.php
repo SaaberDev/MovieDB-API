@@ -2,6 +2,7 @@
 
     namespace App\Http\Controllers;
 
+    use App\Repository\MovieDB;
     use Illuminate\Contracts\Foundation\Application;
     use Illuminate\Contracts\View\Factory;
     use Illuminate\Contracts\View\View;
@@ -10,6 +11,13 @@
 
     class HomeController extends Controller
     {
+        private MovieDB $movieDB;
+
+        public function __construct(MovieDB $movieDB)
+        {
+            $this->movieDB = $movieDB;
+        }
+
         /**
          * Display a listing of the resource.
          *
@@ -17,18 +25,21 @@
          */
         public function index()
         {
-//            $data = \Http::get();
-            return view('index');
+            $topRatedMovies = $this->movieDB->topRated()->take(5);
+            $popularMoviesRight = $this->movieDB->popular()->take(2);
+            $popularMoviesBottom = $this->movieDB->popular()->take(6)->except([0, 1]);
+            return view('index', compact('topRatedMovies', 'popularMoviesRight', 'popularMoviesBottom'));
         }
 
         /**
          * Show the form for creating a new resource.
          *
-         * @return Response
+         * @return Application|Factory|View|Response
          */
-        public function create()
+        public function list()
         {
-            //
+            $allMovies = $this->movieDB->all();
+            return view('pages.movie_list', compact('allMovies'));
         }
 
         /**

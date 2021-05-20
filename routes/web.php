@@ -22,8 +22,5 @@
 
     Route::prefix('/')->name('guest.')->group(function () {
         Route::get('/', [HomeController::class, 'index'])->name('home');
-
-        Route::get('/movies', function () {
-            return view('pages.movie_list');
-        })->name('movie_list');
+        Route::get('/movies', [HomeController::class, 'list'])->name('movie_list');
     });
