@@ -38,18 +38,11 @@
             return collect($data);
         }
 
-        public function releaseYears($page = 1)
+        public function search($key, $page)
         {
             $data = \Http::withToken(config('services.tmdb.token'))
-                ->get('https://api.themoviedb.org/4/list/7096014?page=' . $page)
+                ->get('https://api.themoviedb.org/3/search/movie?include_adult=false&query=' . $key . '&page=' . $page)
                 ->json()['results'];
-
-//            $explode = [];
-//            foreach ($data as $datum) {
-//                $slice = explode('-', $datum['release_date']);
-//                $explode[] = \Arr::first($slice);
-//            }
-//            dd($explode);
             return collect($data);
         }
     }

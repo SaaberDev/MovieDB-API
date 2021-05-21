@@ -38,6 +38,8 @@
          */
         public function list()
         {
+//            $m = $this->movieDB->search('', 1);
+//            dd($m);
             return view('pages.movie_list');
         }
 
