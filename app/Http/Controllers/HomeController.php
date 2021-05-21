@@ -38,10 +38,7 @@
          */
         public function list()
         {
-            $allMovies = $this->movieDB->all();
-            $genres = $this->movieDB->genres();
-            $releaseYears = $this->movieDB->releaseYears();
-            return view('pages.movie_list', compact('allMovies', 'genres', 'releaseYears'));
+            return view('pages.movie_list');
         }
 
         /**

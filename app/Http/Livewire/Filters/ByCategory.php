@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Filters;
 
 use App\Repository\MovieDB;
 use Livewire\Component;
 
-class MoviesComponent extends Component
+class ByCategory extends Component
 {
     private MovieDB $movieDB;
 
@@ -16,7 +16,7 @@ class MoviesComponent extends Component
 
     public function render()
     {
-        $allMovies = $this->movieDB->all();
-        return view('livewire.movies-component', compact('allMovies'));
+        $genres = $this->movieDB->genres();
+        return view('livewire.filters.by-category', compact('genres'));
     }
 }
