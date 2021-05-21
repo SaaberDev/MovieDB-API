@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Repository\MovieDB;
+use Illuminate\Pagination\Paginator;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -67,6 +68,21 @@ class MoviesComponent extends Component
             ->get('https://api.themoviedb.org/3/genre/movie/list')
             ->json()['genres'];
         return collect($data);
+    }
+
+    public function previousPage()
+    {
+        //
+    }
+
+    public function gotoPage()
+    {
+        //
+    }
+
+    public function nextPage()
+    {
+        //
     }
 
     public function render()
