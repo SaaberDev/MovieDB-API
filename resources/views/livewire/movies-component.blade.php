@@ -24,5 +24,8 @@
         @endforelse
     </div> <!-- .movie-list -->
 
-    @include('includes.pagination')
+{{--    {{ $allMovies->links() }}--}}
+{{--    @include('includes.pagination')--}}
+    {{ $allMovies->links('includes.pagination') }}
+{{--    @include('livewire::bootstrap')--}}
 </div>
