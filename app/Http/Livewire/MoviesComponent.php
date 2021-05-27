@@ -14,6 +14,7 @@ class MoviesComponent extends Component
     use WithPagination;
 
     public $search = '';
+    public $filter = '';
     public $recordPerPage = 8;
     public $page = 1;
     protected $movieDB;
@@ -44,14 +45,11 @@ class MoviesComponent extends Component
     public function search()
     {
         $search = $this->search;
+        $filter = $this->filter;
         $i = 0;
         $data = [];
 
-        if (empty($search)) {
-            return \Http::withToken(config('services.tmdb.token'))
-                ->get('https://api.themoviedb.org/4/list/7096014')
-                ->collect('results');
-        } else {
+        if ($search) {
             $movieLists = \Http::withToken(config('services.tmdb.token'))
                 ->get('https://api.themoviedb.org/4/list/7096014')
                 ->collect('results');
@@ -61,8 +59,26 @@ class MoviesComponent extends Component
                 if (strstr(strtolower($movieList['original_title']), strtolower($search))) array_push ($data, $movieLists[$i]);
                 $i++;
             }
+        } elseif ($filter) {
+            $movieLists = \Http::withToken(config('services.tmdb.token'))
+                ->get('https://api.themoviedb.org/4/list/7096014')
+                ->collect('results');
+
+        foreach ($movieLists as $movieList) {
+            if (strstr($movieList['genre_ids'][0], $filter)) array_push ($data, $movieLists[$i]);
+            $i++;
         }
+    } else {
+        return \Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/4/list/7096014')
+            ->collect('results');
+    }
         return $data;
+    }
+
+    public function clearFilter()
+    {
+        $this->filter = '';
     }
 
     public function genres()
@@ -97,17 +113,13 @@ class MoviesComponent extends Component
 
     public function render()
     {
-//        $search = $this->search;
-        $allMovies = $this->search();
-        $allMovies = $this->paginate($allMovies, $this->recordPerPage, $this->page);
+        $allMovies = $this->paginate($this->search(), $this->recordPerPage, $this->page);
 //        dd($allMovies);
-//        $allMovies = $this->paginate($allMovies, $this->recordPerPage);
-//        dd($m->links());
         $genres = $this->genres();
         return view('livewire.movies-component', compact('allMovies', 'genres'));
     }
 
 
 
-    // TODO -- [ Paginate, Filter by Genres, Page item ]
+    // TODO -- [ Filter by Genres ]
 }

@@ -3,8 +3,8 @@
         <a href="{{ route('guest.home') }}" id="branding">
             <img src="{{ asset('_assets/images/logo.png') }}" alt="" class="logo">
             <div class="logo-copy">
-                <h1 class="site-title">Company Name</h1>
-                <small class="site-description">Tagline goes here</small>
+                <h1 class="site-title">MovieTalk</h1>
+                <small class="site-description">{{ strtoupper('Your favourite movie dairy') }}</small>
             </div>
         </a> <!-- #branding -->
 

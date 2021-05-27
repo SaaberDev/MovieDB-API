@@ -38,11 +38,30 @@
             return collect($data);
         }
 
-        public function search($key, $page)
+        public function allMovies()
         {
-            $data = \Http::withToken(config('services.tmdb.token'))
-                ->get('https://api.themoviedb.org/3/search/movie?include_adult=false&query=' . $key . '&page=' . $page)
-                ->json()['results'];
-            return collect($data);
+            return \Http::withToken(config('services.tmdb.token'))
+                ->get('https://api.themoviedb.org/4/list/7096014')
+                ->collect('results');
         }
+
+//        public function search()
+//        {
+//            if (empty($search)) {
+//                return \Http::withToken(config('services.tmdb.token'))
+//                    ->get('https://api.themoviedb.org/4/list/7096014')
+//                    ->collect('results');
+//            } else {
+//                $movieLists = \Http::withToken(config('services.tmdb.token'))
+//                    ->get('https://api.themoviedb.org/4/list/7096014')
+//                    ->collect('results');
+//
+//                // filling an array of indexes $ar
+//                foreach ($movieLists as $movieList){
+//                    if (strstr(strtolower($movieList['original_title']), strtolower($search))) array_push ($data, $movieLists[$i]);
+//                    $i++;
+//                }
+//            }
+//            return $data;
+//        }
     }
