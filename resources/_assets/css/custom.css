@@ -1,0 +1,10 @@
+.main-navigation .menu-item a {
+    padding: 0 15px;
+    display: inline-block;
+    color: #84878d;
+    font-size: 14px;
+    font-size: 0.9333333333em;
+    font-weight: 400;
+    line-height: 1;
+    border-right: 0;
+}
